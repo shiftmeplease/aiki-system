@@ -3,7 +3,7 @@ export interface IStudent {
     name: string
     city: string
     Dan: string
-    Sert: string
+    Sert: string|number
 }
 export interface IStudentData {
     students: IStudent[]

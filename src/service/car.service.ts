@@ -1,43 +1,38 @@
 import { IProg } from "@/interfaces/prog.interface"
-import axios from "axios"
 import { IMaster } from "@/interfaces/mast.interfaces"
 import { ICity } from "@/interfaces/halls.interfaces"
 import { IText } from "@/interfaces/history.interfaces"
 import { IStudent } from "@/interfaces/students.interface"
+import db from '../../db.json'
 
-const API_URL = 'http://localhost:4200'
-axios.defaults.baseURL = API_URL
+export const Service = (() => {
+    return {
+         getProgramm():IProg[] {
+            return db.programm
+        },
 
-export const Service = {
-    async getProgramm() {
-        const { data } = await axios.get<IProg[]>('/programm')
-        return data
-    },
+         getMasters():IMaster[] {
+            return db.masters
+        },
 
-    async getMasters() {
-        const { data } = await axios.get<IMaster[]>('/masters')
-        return data
-    },
+         getHalls():ICity[] {
+            return db.halls
+        },
 
-    async getHalls() {
-        const { data } = await axios.get<ICity[]>('/halls')
-        return data
-    },
-
-    async getHistory() {
-        const { data } = await axios.get<IText[]>('/history')
-        return data
-    },
-    async getStudents() {
-        const { data } = await axios.get<IStudent[]>(`/students`)
-        return data
-    },
-    //async getById(id: string) {
-    //    const { data } = await axios.get<ICity[]>('/cars', {
-    //        params: {
-    //            id
-    //        }
-    //    })
-    //    return data[0]
-    //}
-}
+         getHistory():IText[] {
+            return db.history
+        },
+         getStudents():IStudent[]{
+            return db.students
+        },
+        
+        //async getById(id: string) {
+        //    const { data } = await axios.get<ICity[]>('/cars', {
+        //        params: {
+        //            id
+        //        }
+        //    })
+        //    return data[0]
+        //}
+    }
+})()
