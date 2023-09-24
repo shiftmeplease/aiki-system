@@ -189,7 +189,7 @@
 @media(max-width: 740px) {
     .appear {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 
     .text {

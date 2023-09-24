@@ -9,7 +9,7 @@
     height: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 50px;
 }

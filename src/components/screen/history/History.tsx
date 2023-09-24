@@ -9,7 +9,7 @@ const History: FC<IHistory> = ({ history }) => {
     return (
         <Layout title="История клуба" description="История клуба">
             <article className={styles.box}>
-                <h2>ИСТОИЯ КЛУБА</h2>
+                <h2>ИСТОРИЯ КЛУБА</h2>
                 {history.length ? history.map(
                     histor =>
                         <Paragraph history={histor} />

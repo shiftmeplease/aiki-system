@@ -5,7 +5,7 @@
     transition: background-color .7s;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .card img {
