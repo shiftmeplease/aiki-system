@@ -48,10 +48,10 @@ const Students: FC<IStudentData> = ({ students }) => {
                         </thead>
                         <tbody className={styles.tableBody} >
 
-                            {filtered.length > 0 ? studentsArrayToRow(filtered) : studentsArrayToRow(students)}
+                            {filtered.length > 0 ? studentsArrayToRow(filtered) : (value !== "" ? <tr><td>{`Ученик ${value} не найден`}</td></tr> : studentsArrayToRow(students))}
                         </tbody>
                     </table>
-                    : "Нет информации про Учеников "}
+                    : "Нет информации про Учеников"}
             </div>
         </Layout>
     )
