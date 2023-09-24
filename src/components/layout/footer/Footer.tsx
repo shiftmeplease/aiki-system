@@ -7,7 +7,7 @@ const Footer: FC = () => {
         <footer className={styles.footer}>
             <div>
                 <Image
-                    src="http://localhost:3000/logo.svg"
+                    src="logo.svg"
                     width={90}
                     height={90}
                     alt='Логотип айки-систем' />
