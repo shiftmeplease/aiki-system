@@ -3,6 +3,7 @@ import axios from "axios"
 import { IMaster } from "@/interfaces/mast.interfaces"
 import { ICity } from "@/interfaces/halls.interfaces"
 import { IText } from "@/interfaces/history.interfaces"
+import { IStudent } from "@/interfaces/students.interface"
 
 const API_URL = 'http://localhost:4200'
 axios.defaults.baseURL = API_URL
@@ -26,7 +27,11 @@ export const Service = {
     async getHistory() {
         const { data } = await axios.get<IText[]>('/history')
         return data
-    }
+    },
+    async getStudents() {
+        const { data } = await axios.get<IStudent[]>(`/students`)
+        return data
+    },
     //async getById(id: string) {
     //    const { data } = await axios.get<ICity[]>('/cars', {
     //        params: {

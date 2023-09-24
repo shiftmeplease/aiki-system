@@ -1,0 +1,133 @@
+.box {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 1150px;
+}
+
+.box h2 {
+    color: var(--blue);
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    padding: 0;
+    margin-top: 150px;
+}
+
+
+.label {
+    position: relative;
+}
+
+.label::before {
+    content: "";
+    position: absolute;
+    left: 399px;
+    top: 0;
+    bottom: 0;
+    width: 19px;
+    background: url("/searchIcon.svg") center / contain no-repeat;
+}
+
+
+.searchInput {
+    width: 439px;
+    height: 70px;
+    flex-shrink: 0;
+    border: 0.5px solid #DFDFDF;
+    background-color: white;
+    color: black;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 23px;
+
+    -webkit-transition: 0.5s;
+    transition: 0.4s;
+    transition-timing-function: ease-in-out;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #DFDFDF;
+}
+
+.searchInput:focus {
+    border: 0.5px solid var(--blue);
+}
+
+.searchInput:focus-visible {
+    border: 0.5px solid var(--blue);
+}
+
+.tableNode {
+    width: 100%;
+    color: #39A7D2;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 140.523%;
+    border-collapse: collapse;
+    margin-top:32px;
+}
+
+.tableNode td :nth-child(1){
+    padding-top: 26px;
+}
+.tableNode td {
+    padding-top: 13px;
+}
+
+.tableHeaders {
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.tableNode td {
+    width: 25%; 
+}
+
+.tableNode tr :nth-child(1) {
+    text-align: left;
+}
+
+.tableNode tr :nth-child(2) {
+    text-align: center;
+}
+
+.tableNode tr :nth-child(3) {
+    text-align: center;
+}
+
+.tableNode tr :nth-child(4) {
+    text-align: center;
+
+}
+
+.tableHeaders th {
+    font-family: InterSemiBold;
+    color: #39A7D2;
+}
+
+.tableBody tr {
+    /* display: flex;
+    justify-content: space-around; */
+}
+
+.tableBody td {
+    color: #242424;
+    font-family: InterMedium;
+}
+
+
+@media(max-width: 600px) {
+    .box {
+        margin-left: 20px;
+    }
+}
