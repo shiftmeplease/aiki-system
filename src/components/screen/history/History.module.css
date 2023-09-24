@@ -1,0 +1,40 @@
+.box {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 50px;
+}
+
+.box h2 {
+    color: var(--blue);
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    padding: 0;
+    margin-left: 50px;
+    margin-top: 150px;
+}
+
+.paragraph {
+    margin-left: 50px;
+}
+
+.paragraph p {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+@media(max-width: 600px) {
+    .box h2{
+        margin-left: 20px;
+    }
+    .paragraph {
+        margin: 0 10px 0 20px;
+    }
+}

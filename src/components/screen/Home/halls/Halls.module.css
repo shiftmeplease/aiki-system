@@ -1,0 +1,95 @@
+.city {
+    transition: .5s ease-in-out;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    height: 73px;
+    margin-bottom: 20px;
+}
+
+.city summary {
+    background-color: lightcyan;
+    width: 200px;
+    height: 30px;
+    text-align: left;
+    margin: 0 !important;
+}
+
+.city div {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    height: 0;
+    transition: all .5s ease-in-out;
+}
+
+.city[open] div {
+    height: auto;
+}
+
+.city[open] a {
+    height: auto;
+    padding: 10px;
+}
+
+.city a {
+    display: block;
+    padding: 0;
+    height: 0;
+    transition: all .5s ease-in-out;
+}
+
+.default {
+    cursor: pointer;
+}
+
+.active {
+    cursor: default;
+    color: var(--blue);
+}
+
+.map img {
+    width: 100vw;
+    height: auto;
+}
+
+.metka {
+    position: relative;
+}
+
+.metka:hover .card {
+    display: block;
+}
+
+.card {
+    background-color: #4E4E4E;
+    height: auto;
+    display: none;
+    z-index: 1;
+    max-width: 330px;
+}
+
+.text {
+    padding: 20px;
+    color: white;
+    line-height: 18.3px;
+}
+
+.text span {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.text div {
+    margin: 5px;
+}
+
+.time {
+    margin-left: 10px;
+}
+
+.address {
+    word-wrap: normal;
+}
+
