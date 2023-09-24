@@ -24,7 +24,7 @@ const Students: FC<IStudentData> = ({ students }) => {
 
     if (value !== "") {
         filtered = students.filter((v: IStudent) =>
-            v.name.match(value)
+            v.name.toLowerCase().match(value.toLowerCase())
         )
     }
     const debouncedChange = debounce(handleChange, 500);
