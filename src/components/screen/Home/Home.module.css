@@ -115,7 +115,7 @@
 }
 
 .history {
-    background-image: url(http://localhost:3000/history.jpg);
+    background-image: url(/history.jpg);
     background-size: contain;
     width: 100vw;
     height: 17vw;
