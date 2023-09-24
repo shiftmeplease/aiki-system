@@ -11,8 +11,8 @@ const History: FC<IHistory> = ({ history }) => {
             <article className={styles.box}>
                 <h2>ИСТОИЯ КЛУБА</h2>
                 {history.length ? history.map(
-                    history =>
-                        <Paragraph history={history} />
+                    histor =>
+                        <Paragraph history={histor} />
                 ) :
                     <div>Not found</div>
                 }

@@ -1,5 +1,5 @@
 import { IProg } from "@/interfaces/prog.interface"
-import axios from "../../node_modules/axios/index"
+import axios from "axios"
 import { IMaster } from "@/interfaces/mast.interfaces"
 import { ICity } from "@/interfaces/halls.interfaces"
 import { IText } from "@/interfaces/history.interfaces"

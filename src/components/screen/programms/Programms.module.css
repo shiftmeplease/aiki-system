@@ -1,0 +1,154 @@
+
+
+.box {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+.box h2 {
+    color: var(--blue);
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding: 0;
+    margin-top: 150px;
+}
+
+.belt{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    max-width: 1150px;
+    padding-right: 50px;
+}
+
+.belt .b_box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.belt button {
+    width: 130px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+
+
+.belt button:first-child{
+    margin: 0;
+}
+
+.b_box{
+    margin-top: 20px;
+}
+
+.color ul li{
+    font-family: Inter;
+    font-weight: 400;
+}
+
+#w{
+    background-color: white;
+    border: .5px rgba(150, 150, 150, 0.527) solid;
+}
+
+#y{
+    background-color: yellow;
+}
+
+#r{
+    background-color: red;
+}
+
+#o{
+    background-color: orange;
+}
+
+.color{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+}
+
+.color span{
+    font-family: Inter-r;
+    font-weight: 700;
+}
+
+
+
+.first, .second, .third{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.first{
+    margin-bottom: 20px;
+}
+
+.first p:first-child, .block:first-child{
+    width: 257.5px;
+}
+
+.first p:nth-child(2), .block:nth-child(2){
+    width: 155px;
+}
+.first p:nth-child(3), .block:nth-child(3){
+    width: 243px;
+}
+
+.color hr{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(150, 150, 150, 0.527);
+    margin-bottom: 20px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.color ul{
+    margin-left: 20px;
+    margin-top: 3px;
+}
+
+.third{
+    margin-top: 40px;
+}
+
+
+@font-face {
+    font-family: Inter;
+    src: url(/Inter-Light.ttf);
+    weight: 400
+}
+
+@font-face {
+    font-family: Inter-r;
+    src: url(/Inter-Regular.ttf);
+    weight: 500
+  }

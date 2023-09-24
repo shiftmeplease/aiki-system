@@ -147,34 +147,11 @@ a {
   }
 }
 
-@font-face {
-  font-family: Inter;
-  src: url(/Inter-Thin.ttf);
-  weight: 200
-}
-
-@font-face {
-  font-family: Inter;
-  src: url(/Inter-ExtraLight.ttf);
-  weight: 300
-}
 
 @font-face {
   font-family: Inter;
   src: url(/Inter-Light.ttf);
-  weight: 400
-}
-
-@font-face {
-  font-family: Inter;
-  src: url(/Inter-Regular.ttf);
-  weight: 500
-}
-
-@font-face {
-  font-family: Apex;
-  src: url(/apex-r.ttf);
-  weight: 400
+  weight: 300
 }
 
 @font-face {

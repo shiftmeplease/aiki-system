@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { IHistory } from "@/interfaces/history.interfaces";
 import History from '@/components/screen/history/History';
 
-const AbourPage: NextPage<IHistory> = ({ history }) => {
+const AboutPage: NextPage<IHistory> = ({ history }) => {
 
     return (
         <>
@@ -21,4 +21,4 @@ export const getStaticProps: GetStaticProps<IHistory> = async () => {
     }
 }
 
-export default AbourPage
+export default AboutPage
