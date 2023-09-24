@@ -46,11 +46,11 @@ const Map: FC<IMap> = ({ hallMap }) => {
                                         </div>
                                         <div className={styles.timetable}>
                                             <span>Расписание:</span> {address.timetable.map(
-                                                timetable =>
-                                                    <div>
+                                                (timetable,index) =>
+                                                    <div key={index} >
                                                         <div>{timetable.day}</div>
                                                         {timetable.time.map(
-                                                            time => <div className={styles.time}>{time}</div>
+                                                            (time,index) => <div key={index} className={styles.time}>{time}</div>
                                                         )}
                                                     </div>
                                             )}
