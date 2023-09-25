@@ -5,7 +5,7 @@ const Red: FC = () => {
     return(
         <div className={styles.color}>
             <div className={styles.first}>
-                <p><span>Красный пояс </span>| 6-кю</p>
+                <p><span>Красный пояс </span>| 7-кю</p>
                 <p><span>Возраст: </span>13-15 лет</p>
                 <p><span>Кол-во тренировок: </span>108</p>
             </div>

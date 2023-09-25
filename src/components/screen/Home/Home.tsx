@@ -69,7 +69,7 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
                         className={styles.back} />
                 </article>
                 <article className={styles.programms}>
-                    <h2>Программы</h2>
+                    <h2>Дисциплины</h2>
                     <div className={styles.name}>
                         {progs.length ? (max > 600 ? progs.map(
                             prog => <Programms key={prog.id} name={prog.name} id={prog.id} />
