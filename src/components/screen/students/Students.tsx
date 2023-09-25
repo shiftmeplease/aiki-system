@@ -16,6 +16,7 @@ function studentsArrayToRow(arr: IStudent[]) {
 }
 
 const Students: FC<IStudentData> = ({ students }) => {
+
     const [value, setValue] = useState("");
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setValue(e.target.value)
@@ -23,8 +24,20 @@ const Students: FC<IStudentData> = ({ students }) => {
     let filtered: IStudent[] = [];
 
     if (value !== "") {
-        filtered = students.filter((v: IStudent) =>
-            v.name.toLowerCase().match(value.toLowerCase())
+        const lValue = value.toLowerCase()
+        const [a, b] = lValue.split(' ');
+        const regexp = new RegExp(`(${a}.*\\s+${b}.*|${b}.*\\s+${a}.*)`, "gi");
+        filtered = students.filter((stud: IStudent) => {
+            let { name } = stud;
+            name = name.toLowerCase();
+
+
+            if (lValue.includes(' ')) {
+                return name.match(regexp)
+            } else {
+                return name.match(lValue)
+            }
+        }
         )
     }
     const debouncedChange = debounce(handleChange, 500);
@@ -48,7 +61,7 @@ const Students: FC<IStudentData> = ({ students }) => {
                         </thead>
                         <tbody className={styles.tableBody} >
 
-                            {filtered.length > 0 ? studentsArrayToRow(filtered) : (value !== "" ? <tr><td>{`Ученик ${value} не найден`}</td></tr> : studentsArrayToRow(students))}
+                            {filtered.length > 0 ? studentsArrayToRow(filtered) : (value !== "" ? <tr><td colSpan={4}>{`Ученик ${value} не найден`}</td></tr> : studentsArrayToRow(students))}
                         </tbody>
                     </table>
                     : "Нет информации про Учеников"}
