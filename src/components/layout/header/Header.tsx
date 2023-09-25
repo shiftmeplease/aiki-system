@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Header.module.css";
 import Image from "next/image";
+// @ts-ignore
 import { Modal } from "next-modal";
 import { SidebarContext } from "../Layout";
 
@@ -265,7 +266,7 @@ const Header: FC = () => {
                     (input) => input.checked
                   )?.defaultValue;
                   if (!city) return;
-                  setCity(city);
+                  setCity && setCity(city);
                   setToggleModal(false);
                 }}
               >
