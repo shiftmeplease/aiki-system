@@ -164,10 +164,21 @@ a {
   }
 }
 
-
 @font-face {
   font-family: Inter;
   src: url(/Inter-Light.ttf);
+  weight: 300
+}
+
+@font-face {
+  font-family: InterMedium;
+  src: url(/Inter-Medium.ttf);
+  weight: 300
+}
+
+@font-face {
+  font-family: InterSemiBold;
+  src: url(/Inter-SemiBold.ttf);
   weight: 300
 }
 

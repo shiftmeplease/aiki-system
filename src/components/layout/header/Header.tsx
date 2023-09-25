@@ -249,8 +249,8 @@ const Header: FC = () => {
           </Modal.Header>
           <Modal.Body>
             <form action="" className="modal-container">
-              {cities.map((city) => (
-                <div className="modal-form">
+              {cities.map((city,index) => (
+                <div key={index} className="modal-form">
                   <input name="city" id={city} value={city} type="radio" />
                   <label htmlFor={city}>{city}</label>
                 </div>
