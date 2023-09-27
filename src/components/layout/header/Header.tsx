@@ -223,7 +223,7 @@ const Header: FC = () => {
               </div>
               <div className={styles.info}>
                 <a className={styles.tel_mob} href={`tel:${currentContactRaw}`}>{currentContact}</a>
-                <span className={styles.icon}>
+                <span className={styles.iconMob}>
                   <a className={styles.iconLink} href={`https://t.me/${currentContactRaw}`}><Image
                     width={30}
                     height={30}
@@ -246,7 +246,7 @@ const Header: FC = () => {
                   setToggleModal(true)
                 }}
               >
-                <div>Ваш город: {city}</div>
+                <p style={{ "whiteSpace": "nowrap" }}>{city}</p>
               </div>
             </div>
           )}

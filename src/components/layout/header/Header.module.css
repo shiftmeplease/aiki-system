@@ -54,10 +54,17 @@
     cursor: pointer;
     padding: 1px;
 }
+.iconMob {
+    cursor: pointer;
+    padding: 1px;
+    min-width: 60px;
+    white-space:nowrap;
+}
 
 .iconLink{
     padding: 0 0 !important;
     margin: 0 0 !important;
+
 }
 
 .mob_menu {
