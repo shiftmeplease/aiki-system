@@ -36,6 +36,9 @@
     padding: 5px 5px;
     cursor: pointer;
 }
+.tel_mob{
+    text-wrap: nowrap;
+}
 
 .tel_bl {
     color: black;

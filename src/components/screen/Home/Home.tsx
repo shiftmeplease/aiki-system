@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-import { FC, useState, useEffect } from 'react'
+import { FC, useState, useEffect, useMemo, useContext } from 'react'
 import Layout from "@/components/layout/Layout";
 import Subtract from './subtract/Subtract';
 import Image from "next/image";
@@ -12,10 +12,20 @@ import Halls from "./halls/Halls";
 import Link from "next/link";
 import Back from "./Arrow/Back";
 import Next from "./Arrow/Next";
+//@ts-ignore
+import { Modal } from "next-modal";
+import { useSidebarContext, SidebarContext } from "@/components/layout/sideBarCtx";
+import { Service } from "@/service/car.service"
+import { IContact } from "@/interfaces/contacts.interface";
 
 const Home: FC<IData> = ({ progs, masters, halls }) => {
-
-    const [max, setMax] = useState(0)
+    const [max, setMax] = useState(0);
+    const [toggleModal, setToggleModal] = useState(false);
+    const { city } = useContext(SidebarContext);
+    console.log(this)
+    console.log(city)
+    const contacts = useMemo(() => Service.getContacts(), []);
+    let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone
 
     useEffect(() => {
 
@@ -56,7 +66,9 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
                                 <Subtract text='Групповые и индивидуальные занятия' />
                                 <Subtract text='Детские и взрослые группы' />
                             </div>
-                            <button>Записаться на пробное занятие</button>
+                            <button onClick={() => {
+                                setToggleModal(true);
+                            }}>Записаться на пробное занятие</button>
                         </div>
 
                     </div>
@@ -154,6 +166,18 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
                     )}
                 </article>
             </Layout >
+            <Modal toggle={toggleModal} setToggle={setToggleModal}>
+                <Modal.Header>
+                    <h3 className="modal-container modal-header-css">Свяжитесь с нами</h3>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="modal-container">
+                        <span>Город: {city}</span>
+
+                        <a href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }

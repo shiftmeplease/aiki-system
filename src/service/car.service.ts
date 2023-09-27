@@ -3,29 +3,33 @@ import { IMaster } from "@/interfaces/mast.interfaces"
 import { ICity } from "@/interfaces/halls.interfaces"
 import { IText } from "@/interfaces/history.interfaces"
 import { IStudent } from "@/interfaces/students.interface"
+import { IContact } from "@/interfaces/contacts.interface"
 import db from '../../db.json'
 
 export const Service = (() => {
     return {
-         getProgramm():IProg[] {
+        getProgramm(): IProg[] {
             return db.programm
         },
 
-         getMasters():IMaster[] {
+        getMasters(): IMaster[] {
             return db.masters
         },
 
-         getHalls():ICity[] {
+        getHalls(): ICity[] {
             return db.halls
         },
 
-         getHistory():IText[] {
+        getHistory(): IText[] {
             return db.history
         },
-         getStudents():IStudent[]{
+        getStudents(): IStudent[] {
             return db.students
         },
-        
+
+        getContacts(): IContact[] {
+            return db.contacts
+        },
         //async getById(id: string) {
         //    const { data } = await axios.get<ICity[]>('/cars', {
         //        params: {

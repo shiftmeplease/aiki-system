@@ -1,15 +1,21 @@
-import { FC, useEffect, useState, useContext } from "react";
+import { FC, useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Header.module.css";
 import Image from "next/image";
 // @ts-ignore
 import { Modal } from "next-modal";
-import { SidebarContext } from "../Layout";
+import { useSidebarContext } from "../sideBarCtx";
+import { Service } from "@/service/car.service"
+import { IContact } from "@/interfaces/contacts.interface";
+
+
 
 const Header: FC = () => {
   const [open, setOpen] = useState(false);
-  let { setCity, city } = useContext(SidebarContext);
+  let { setCity, city } = useSidebarContext()
+  const contacts = useMemo(() => Service.getContacts(), []);
+  let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone
 
   const [toggleModal, setToggleModal] = useState(false);
   const cities = ['Санкт-Петербург', "Пермь", "Ижевск", "Каменка",];
@@ -62,9 +68,7 @@ const Header: FC = () => {
         </div>
         <div className={styles.contact}>
           <div className={styles.pc_tel}>
-            <span className={pathname === "/" ? styles.tel_wh : styles.tel_bl}>
-              +7(900)180-90-90
-            </span>
+            <a className={pathname === "/" ? styles.tel_wh : styles.tel_bl} href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
             <span className={styles.icon}>
               <Image
                 width={30}
@@ -81,22 +85,11 @@ const Header: FC = () => {
             </span>
           </div>
           <div className={styles.pc_tel} onClick={() => setToggleModal(true)}>
-            <div style={
-              pathname === "/" ? { color: "white" } : { color: "var(--blue)" }
-            }>Ваш город: {city}</div>
+            <div>Ваш город: {city}</div>
           </div>
         </div>
 
-        <div  className={styles.header_city}
-            onClick={() =>{
-            setOpen(false)
-            setToggleModal(true)}}
-            >
-              <div id='head_city'><p>Ваш город:</p> <span>{city}</span></div>
-        </div>
-
         <div className={styles.mob}>
-            
           <button
             className={styles.burger}
             onClick={MobMenu}
@@ -110,56 +103,56 @@ const Header: FC = () => {
                 style={
                   pathname === "/"
                     ? {
-                        border: "2px solid white",
-                        borderRadius: 50,
-                        width: 50,
-                        height: 0,
-                        marginTop: 10,
-                      }
+                      border: "2px solid white",
+                      borderRadius: 50,
+                      width: 50,
+                      height: 0,
+                      marginTop: 10,
+                    }
                     : {
-                        border: "2px solid var(--blue)",
-                        width: 50,
-                        height: 0,
-                        marginTop: 10,
-                      }
+                      border: "2px solid var(--blue)",
+                      width: 50,
+                      height: 0,
+                      marginTop: 10,
+                    }
                 }
               />
               <div
                 style={
                   pathname === "/"
                     ? {
-                        border: "2px solid white",
-                        borderRadius: 50,
-                        width: 50,
-                        height: 0,
-                        marginTop: 10,
-                      }
+                      border: "2px solid white",
+                      borderRadius: 50,
+                      width: 50,
+                      height: 0,
+                      marginTop: 10,
+                    }
                     : {
-                        border: "2px solid var(--blue)",
-                        width: 50,
-                        height: 0,
-                        marginTop: 10,
-                      }
+                      border: "2px solid var(--blue)",
+                      width: 50,
+                      height: 0,
+                      marginTop: 10,
+                    }
                 }
               />
               <div
                 style={
                   pathname === "/"
                     ? {
-                        border: "2px solid white",
-                        borderRadius: 50,
-                        width: 30,
-                        height: 0,
-                        marginTop: 10,
-                        marginLeft: 20,
-                      }
+                      border: "2px solid white",
+                      borderRadius: 50,
+                      width: 30,
+                      height: 0,
+                      marginTop: 10,
+                      marginLeft: 20,
+                    }
                     : {
-                        border: "2px solid var(--blue)",
-                        width: 30,
-                        height: 0,
-                        marginTop: 10,
-                        marginLeft: 20,
-                      }
+                      border: "2px solid var(--blue)",
+                      width: 30,
+                      height: 0,
+                      marginTop: 10,
+                      marginLeft: 20,
+                    }
                 }
               />
             </span>
@@ -227,7 +220,7 @@ const Header: FC = () => {
                 </Link>
               </div>
               <div className={styles.info}>
-                <span className={styles.tel_mob}>+7(900)180-90-90</span>
+                <a className={styles.tel_mob} href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
                 <span className={styles.icon}>
                   <Image
                     width={30}
@@ -243,7 +236,15 @@ const Header: FC = () => {
                   />
                 </span>
               </div>
-              
+              <div
+                className='modal-header-css'
+                onClick={() => {
+                  setOpen(false)
+                  setToggleModal(true)
+                }}
+              >
+                <div>Ваш город: {city}</div>
+              </div>
             </div>
           )}
         </div>
@@ -253,7 +254,7 @@ const Header: FC = () => {
           </Modal.Header>
           <Modal.Body>
             <form action="" className="modal-container">
-              {cities.map((city,index) => (
+              {cities.map((city, index) => (
                 <div key={index} className="modal-form">
                   <input name="city" id={city} value={city} type="radio" />
                   <label htmlFor={city}>{city}</label>
@@ -271,6 +272,7 @@ const Header: FC = () => {
                   )?.defaultValue;
                   if (!city) return;
                   setCity && setCity(city);
+                  localStorage.setItem('city', city)
                   setToggleModal(false);
                 }}
               >

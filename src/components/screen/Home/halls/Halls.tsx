@@ -1,10 +1,10 @@
 import { IHalls, ICity, } from "@/interfaces/halls.interfaces";
-import { FC, useContext } from "react";
+import { FC } from "react";
 import Map from "./Map";
-import { SidebarContext } from "@/components/layout/Layout";
+import { useSidebarContext } from "@/components/layout/sideBarCtx";
 
 const Halls: FC<IHalls> = ({ halls }) => {
-  const { city } = useContext(SidebarContext);
+  const { city } = useSidebarContext();
   if (!city) return null;
   let hallMap: ICity = halls.find((hall) => hall.city === city) || halls[0]
   
