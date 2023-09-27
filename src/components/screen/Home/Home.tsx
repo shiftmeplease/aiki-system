@@ -22,8 +22,6 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
     const [max, setMax] = useState(0);
     const [toggleModal, setToggleModal] = useState(false);
     const { city } = useContext(SidebarContext);
-    console.log(this)
-    console.log(city)
     const contacts = useMemo(() => Service.getContacts(), []);
     let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone
 
