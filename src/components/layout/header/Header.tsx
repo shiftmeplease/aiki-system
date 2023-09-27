@@ -15,7 +15,8 @@ const Header: FC = () => {
   const [open, setOpen] = useState(false);
   let { setCity, city } = useSidebarContext()
   const contacts = useMemo(() => Service.getContacts(), []);
-  let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone
+  let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone;
+  let currentContactRaw = currentContact.replace(/\(|\)|-/g, '');
 
   const [toggleModal, setToggleModal] = useState(false);
   const cities = ['Санкт-Петербург', "Пермь", "Ижевск", "Каменка",];
@@ -68,20 +69,21 @@ const Header: FC = () => {
         </div>
         <div className={styles.contact}>
           <div className={styles.pc_tel}>
-            <a className={pathname === "/" ? styles.tel_wh : styles.tel_bl} href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
+            <a className={pathname === "/" ? styles.tel_wh : styles.tel_bl} href={`tel:${currentContactRaw}`}>{currentContact}</a>
             <span className={styles.icon}>
-              <Image
+              <a className={styles.iconLink} href={`https://t.me/${currentContactRaw}`}><Image
                 width={30}
                 height={30}
                 src={"/tg.svg"}
                 alt="telegram logo"
-              />
-              <Image
-                width={30}
-                height={30}
-                src={"/wu.svg"}
-                alt="what`s up logo"
-              />
+              /></a>
+              <a className={styles.iconLink} href={`https://wa.me/${currentContactRaw.replace('+', "")}`}>
+                <Image
+                  width={30}
+                  height={30}
+                  src={"/wu.svg"}
+                  alt="what`s up logo"
+                /></a>
             </span>
           </div>
           <div className={styles.pc_tel} onClick={() => setToggleModal(true)}>
@@ -220,20 +222,21 @@ const Header: FC = () => {
                 </Link>
               </div>
               <div className={styles.info}>
-                <a className={styles.tel_mob} href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
+                <a className={styles.tel_mob} href={`tel:${currentContactRaw}`}>{currentContact}</a>
                 <span className={styles.icon}>
-                  <Image
+                  <a className={styles.iconLink} href={`https://t.me/${currentContactRaw}`}><Image
                     width={30}
                     height={30}
                     src={"/tg.svg"}
                     alt="telegram logo"
-                  />
-                  <Image
-                    width={30}
-                    height={30}
-                    src={"/wu.svg"}
-                    alt="what`s up logo"
-                  />
+                  /></a>
+                  <a className={styles.iconLink} href={`https://wa.me/${currentContactRaw.replace('+', "")}`}>
+                    <Image
+                      width={30}
+                      height={30}
+                      src={"/wu.svg"}
+                      alt="what`s up logo"
+                    /></a>
                 </span>
               </div>
               <div
@@ -281,7 +284,7 @@ const Header: FC = () => {
             </form>
           </Modal.Body>
         </Modal>
-      </header>
+      </header >
     </>
   );
 };

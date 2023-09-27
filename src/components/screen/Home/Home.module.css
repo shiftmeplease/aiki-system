@@ -130,6 +130,24 @@
     color: white;
 }
 
+.icon {
+    cursor: pointer;
+    padding: 1px;
+}
+
+.iconLink{
+    padding: 0 0 !important;
+    margin: 0 0 !important;
+}
+
+.modalBody p {
+    padding-bottom: 5px;
+}
+
+.modalBody a {
+    font-weight: 800;
+}
+
 .history a {
     display: block;
     background-color: var(--blue);

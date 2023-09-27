@@ -23,7 +23,8 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
     const [toggleModal, setToggleModal] = useState(false);
     const { city } = useContext(SidebarContext);
     const contacts = useMemo(() => Service.getContacts(), []);
-    let currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone
+    const currentContact = contacts.filter((v: IContact) => v.city.includes(city || ''))[0].phone;
+    const currentContactRaw = currentContact.replace(/\(|\)|-/g, '');
 
     useEffect(() => {
 
@@ -169,10 +170,25 @@ const Home: FC<IData> = ({ progs, masters, halls }) => {
                     <h3 className="modal-container modal-header-css">Свяжитесь с нами</h3>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="modal-container">
-                        <span>Город: {city}</span>
-
-                        <a href={`tel:${currentContact.replace(/\(|\)|-/g, '')}`}>{currentContact}</a>
+                    <div className={styles.modalBody}>
+                        <p>Город: {city}</p>
+                        <p >Телефон: <a href={`tel:${currentContactRaw}`}>{currentContact}</a></p>
+                        <p style={{"marginTop":"10px"}}>Мессенджеры: </p>
+                        <p className={styles.icon}>
+                            <a className={styles.iconLink} href={`https://t.me/${currentContactRaw}`}><Image
+                                width={30}
+                                height={30}
+                                src={"/tg.svg"}
+                                alt="telegram logo"
+                            /></a>
+                            <a className={styles.iconLink} href={`https://wa.me/${currentContactRaw.replace('+', "")}`}>
+                                <Image
+                                    width={30}
+                                    height={30}
+                                    src={"/wu.svg"}
+                                    alt="what`s up logo"
+                                /></a>
+                        </p>
                     </div>
                 </Modal.Body>
             </Modal>

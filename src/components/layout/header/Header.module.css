@@ -33,11 +33,13 @@
     color: white;
     position: relative;
     top: -8.3px;
-    padding: 5px 5px;
+    margin: 5px 5px !important;
+    padding: 0 0 !important;
     cursor: pointer;
 }
 .tel_mob{
     text-wrap: nowrap;
+    margin: 5px 5px;
 }
 
 .tel_bl {
@@ -51,6 +53,11 @@
 .icon {
     cursor: pointer;
     padding: 1px;
+}
+
+.iconLink{
+    padding: 0 0 !important;
+    margin: 0 0 !important;
 }
 
 .mob_menu {
