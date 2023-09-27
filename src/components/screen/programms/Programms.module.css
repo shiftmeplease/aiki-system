@@ -107,15 +107,30 @@
     margin-bottom: 20px;
 }
 
-.first p:first-child, .block:first-child{
+.first p:first-child, .second .block:first-child{
     width: 257.5px;
 }
 
-.first p:nth-child(2), .block:nth-child(2){
+.first p:nth-child(2), .second .block:nth-child(2){
     width: 155px;
 }
-.first p:nth-child(3), .block:nth-child(3){
+.first p:nth-child(3), .second .block:nth-child(3){
     width: 243px;
+}
+
+.old_second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.old_second ul li{
+    list-style-type: none
+}
+
+.old_second ul{
+    margin-left: 0 !important;
 }
 
 .color hr{
@@ -152,3 +167,46 @@
     src: url(/Inter-Regular.ttf);
     weight: 500
   }
+
+@media(max-width: 960px) {
+    .first p:first-child, .block:first-child{
+        width: auto;
+    }
+    
+    .first p:nth-child(2), .block:nth-child(2){
+        width: auto;
+    }
+    .first p:nth-child(3), .block:nth-child(3){
+        width: auto;
+    }
+
+    .second, .old_second{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media(max-width: 615px) {
+    .first{
+        flex-direction: column;
+        gap: 10px
+    }
+    .belt button{
+        margin-left: 10px;
+    }
+}
+
+@media(max-width: 450px) {
+    .box{
+        margin-left: 20px;
+    }
+    .belt{
+        padding-right: 20px;
+    }
+}
+
+@media(max-width: 390px) {
+    .box h2{
+        font-size: 40px;
+    }
+}

@@ -26,7 +26,10 @@ const Map: FC<IMap> = ({ hallMap }) => {
               }}
             >
               <Image src="/metka.png" width={70} height={70} alt="metka" />
-              <div className={styles.card}>
+              <div className={styles.card}
+                style={{
+                  left: `calc(880px - ${address.left}px)`,
+                  position: "absolute",}}>
                 <Image
                   src={address.img}
                   width={330}

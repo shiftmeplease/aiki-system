@@ -54,8 +54,8 @@
 
 .title h6 {
     font-size: 20px;
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
     font-family: Inter;
     font-weight: 200;
 }
@@ -74,12 +74,8 @@
     margin-bottom: 100px;
 }
 
-.programms h3 {
-    color: var(--blue);
-    font-size: 45px;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
+.programms h2{
+    margin-bottom: 10px;
 }
 
 .name {
@@ -147,7 +143,11 @@
 }
 
 .master {
-    margin: 100px 50px;
+    margin: 90px 50px;
+}
+
+.master h2{
+    margin-bottom: 40px;
 }
 
 .arrow {
@@ -185,6 +185,10 @@
     letter-spacing: 0em;
     text-align: left;
     max-width: 1120px;
+}
+
+.halls{
+    margin-top: -40px;
 }
 
 .halls h2 {

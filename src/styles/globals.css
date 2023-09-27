@@ -131,35 +131,42 @@ a {
   }
 }
 
-#city0 {
+#city0, #city1, #city2, #city3 {
   right: 00px;
   position: relative;
 }
 
 @media(max-width: 1440px) {
-  #city0 {
+  #city0, #city1, #city2, #city3 {
     right: 200px;
     position: relative;
   }
 }
 
 @media(max-width: 1240px) {
-  #city0 {
+  #city0, #city1, #city2, #city3 {
     right: 500px;
     position: relative;
   }
 }
 
 @media(max-width: 940px) {
-  #city0 {
+  #city0, #city1, #city2, #city3 {
     right: 800px;
     position: relative;
   }
 }
 
 @media(max-width: 640px) {
-  #city0 {
+  #city0, #city1, #city2, #city3 {
     right: 852px;
+    position: relative;
+  }
+}
+
+@media(max-width: 400px) {
+   #city1 {
+    right: 872px;
     position: relative;
   }
 }
@@ -167,6 +174,12 @@ a {
 @font-face {
   font-family: Inter;
   src: url(/Inter-Light.ttf);
+  weight: 300
+}
+
+@font-face {
+  font-family: Inter-r;
+  src: url(/Inter-Regular.ttf);
   weight: 300
 }
 
@@ -186,4 +199,9 @@ a {
   font-family: Apex;
   src: url(/apex-b.ttf);
   weight: 500
+}
+
+#head_city p, #head_city span{
+  font-family: Inter-r;
+  font-weight: 500 ;
 }

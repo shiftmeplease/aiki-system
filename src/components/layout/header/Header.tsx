@@ -60,7 +60,7 @@ const Header: FC = () => {
             О нас
           </Link>
         </div>
-        <div className="contact">
+        <div className={styles.contact}>
           <div className={styles.pc_tel}>
             <span className={pathname === "/" ? styles.tel_wh : styles.tel_bl}>
               +7(900)180-90-90
@@ -81,11 +81,22 @@ const Header: FC = () => {
             </span>
           </div>
           <div className={styles.pc_tel} onClick={() => setToggleModal(true)}>
-            <div>Ваш город: {city}</div>
+            <div style={
+              pathname === "/" ? { color: "white" } : { color: "var(--blue)" }
+            }>Ваш город: {city}</div>
           </div>
         </div>
 
+        <div  className={styles.header_city}
+            onClick={() =>{
+            setOpen(false)
+            setToggleModal(true)}}
+            >
+              <div id='head_city'><p>Ваш город:</p> <span>{city}</span></div>
+        </div>
+
         <div className={styles.mob}>
+            
           <button
             className={styles.burger}
             onClick={MobMenu}
@@ -232,14 +243,7 @@ const Header: FC = () => {
                   />
                 </span>
               </div>
-              <div
-                className='modal-header-css'
-                onClick={() =>{
-                  setOpen(false)
-                   setToggleModal(true)}}
-              >
-                <div>Ваш город: {city}</div>
-              </div>
+              
             </div>
           )}
         </div>
